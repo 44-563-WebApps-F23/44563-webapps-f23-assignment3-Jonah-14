@@ -29,7 +29,6 @@
 
 Link : <a href="mystats.html">Mystats link</a>
 
-</body>
 
 <hr>
 <h3>4 Types of Sports that i recommend </h3>
@@ -61,3 +60,49 @@ Link : <a href="mystats.html">Mystats link</a>
             <td>2 hours</td>
         </tr>
     </table>
+
+  <hr>
+  <h1>Snippet code</h1>
+  
+  <q>Smooth scrolling in Jquery</q>
+  <a href="https://stackoverflow.com/questions/7717527/smooth-scrolling-when-clicking-an-anchor-link">Smooth scrolling
+     in Jquery stackoverflowlink</a>
+     <pre>
+        $('a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    // On-page links
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+      && 
+      location.hostname == this.hostname
+    ) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000, function() {
+          // Callback after animation
+          // Must change focus!
+          var $target = $(target);
+          $target.focus();
+          if ($target.is(":focus")) { // Checking if the target was focused
+            return false;
+          } else {
+            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+            $target.focus(); // Set focus again
+          };
+        });
+      }
+    }
+  });
+  </pre>
+    
+  </body>
